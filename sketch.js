@@ -93,7 +93,7 @@ blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
 function setup() {
 //pre();
   cnv = createCanvas(320, 240);
-	//cnv.id('mycanvas');
+	cnv.id('mycanvas');
   capture = createCapture(VIDEO);
   capture.elt.setAttribute('playsinline', '');
   capture.size(width, height);
