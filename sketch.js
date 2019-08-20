@@ -44,7 +44,7 @@ const displaySize = { width: capture.width, height: capture.height }
 //console.log(canvas)
 faceapi.matchDimensions(mycanvas, displaySize)
 const resizedDetections = faceapi.resizeResults(detections, displaySize);
-console.log(resizedDetections);
+//console.log(resizedDetections);
 
 //Face detection for rect
 
@@ -99,22 +99,22 @@ pre();
   capture.elt.setAttribute('playsinline', '');
   capture.size(width, height);
   capture.hide();
-  pg = createGraphics(width,height);
+  //pg = createGraphics(width,height);
 }
 
 function draw() {
   background(220);
 //	if(!ready) text('loading model...', width/2, height/2)
 // if(detecting) text('detecting...', width/2, height/2)
-  //image(capture,0,0);
+image(capture,0,0);
 updateDetections();
 
-	// for (var i = 0; i < blocks.length; i++) {
-	// 	blocks[i].display();
-	// }
+	for (var i = 0; i < blocks.length; i++) {
+		blocks[i].display();
+	}
 
-	drawDetect();
-  image(pg,0,0, width,height);
+	// drawDetect();
+  // image(pg,0,0, width,height);
 
 }
 
