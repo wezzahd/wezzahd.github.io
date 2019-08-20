@@ -45,7 +45,7 @@ const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFac
 // //console.log(canvas)
 //faceapi.matchDimensions(mycanvas, displaySize) //CRASHES CANVAS with SAFARI
  const resizedDetections = faceapi.resizeResults(detections, displaySize);
-// //console.log(resizedDetections);
+console.log(resizedDetections);
 //
 // //Face detection for rect
 //
