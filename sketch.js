@@ -118,7 +118,10 @@ updateDetections();
 
  //drawDetect();
  //pg.background(0);
+ //pg.tint(255,150);
    image(pg,0,0, width,height);
+   tint(255,150);
+   image(capture,0,0,width,height);
 
   // fill(0);
   // rect(10,10,40,40);
