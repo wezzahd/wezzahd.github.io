@@ -84,14 +84,14 @@ blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
 }
 
 
-function preload() {
-	pre();
-
-}
+// function preload() {
+// 	pre();
+//
+// }
 
 
 function setup() {
-
+pre();
   cnv = createCanvas(320, 240);
 	cnv.id('mycanvas');
   capture = createCapture(VIDEO);
