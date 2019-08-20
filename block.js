@@ -16,17 +16,17 @@ function Block(x, y, w, h, g, gp) {
 
     this.display = function() {
 
-      noFill();
-      stroke(this.color);
-      noFill();
-      rect(this.x,this.y,this.width,this.height);
-      noStroke();
-      fill(this.color);
-      textSize(16);
+      pg.noFill();
+      pg.stroke(this.color);
+      pg.noFill();
+      pg.rect(this.x,this.y,this.width,this.height);
+      pg.noStroke();
+      pg.fill(this.color);
+      pg.textSize(16);
       //text(this.express, ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +10));
       //text(int(this.score*100)+"% confidence", ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +30));
       //text("age:"+ int(this.genderprob),((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +10));
-      text(this.gender, ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +10));
-  text(this.genderprob, ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +30));
+      pg.text(this.gender, ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +10));
+  pg.text(this.genderprob, ((this.x+this.width+ 10)- ((this.x+this.width+ 10)/2)), (this.y+this.height +30));
     }
   }

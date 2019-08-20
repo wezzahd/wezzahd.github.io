@@ -110,11 +110,11 @@ function draw() {
 //image(capture,0,0);
 updateDetections();
   //
-	// for (var i = 0; i < blocks.length; i++) {
-	// 	blocks[i].display();
-	// }
+	for (var i = 0; i < blocks.length; i++) {
+		blocks[i].display();
+	}
 
- drawDetect();
+ //drawDetect();
    image(pg,0,0, width,height);
 
   // fill(0);
