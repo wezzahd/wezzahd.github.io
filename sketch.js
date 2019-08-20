@@ -106,10 +106,10 @@ function draw() {
 // if(detecting) text('detecting...', width/2, height/2)
   image(capture,0,0);
 updateDetections();
-  //
-	// for (var i = 0; i < blocks.length; i++) {
-	// 	blocks[i].display();
-	// }
+
+	for (var i = 0; i < blocks.length; i++) {
+		blocks[i].display();
+	}
 
 //	drawDetect();
 
