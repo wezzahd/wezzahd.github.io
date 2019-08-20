@@ -15,7 +15,7 @@ function Block(x, y, w, h, g, gp) {
 
 
     this.display = function() {
-
+pg.background(0);
       pg.noFill();
       pg.stroke(this.color);
       pg.noFill();

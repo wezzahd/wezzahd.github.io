@@ -115,7 +115,7 @@ updateDetections();
 	}
 
  //drawDetect();
- pg.background(0);
+ //pg.background(0);
    image(pg,0,0, width,height);
 
   // fill(0);
