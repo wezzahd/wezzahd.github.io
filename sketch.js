@@ -105,11 +105,11 @@ function draw() {
 	if(!ready) text('loading model...', width/2, height/2)
  if(detecting) text('detecting...', width/2, height/2)
   image(capture,0,0);
-	updateDetections();
-
-	for (var i = 0; i < blocks.length; i++) {
-		blocks[i].display();
-	}
+	// updateDetections();
+  //
+	// for (var i = 0; i < blocks.length; i++) {
+	// 	blocks[i].display();
+	// }
 
 //	drawDetect();
 
