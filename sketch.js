@@ -43,7 +43,7 @@ const displaySize = { width: capture.width, height: capture.height }
 //console.log(canvas)
 faceapi.matchDimensions(mycanvas, displaySize)
 const resizedDetections = faceapi.resizeResults(detections, displaySize);
-console.log(resizedDetections);
+//console.log(resizedDetections);
 
 //Face detection for rect
 
