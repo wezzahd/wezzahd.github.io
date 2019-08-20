@@ -12,8 +12,8 @@ var blocks = [];
 async function pre() {
   console.log('loading models')
 	await faceapi.nets.tinyFaceDetector.loadFromUri('models'),
-  //await faceapi.nets.faceLandmark68TinyNet.loadFromUri('/models'),
-await faceapi.nets.faceLandmark68Net.loadFromUri('models'),
+  await faceapi.nets.faceLandmark68TinyNet.loadFromUri('models'),
+//await faceapi.nets.faceLandmark68Net.loadFromUri('models'),
 //  await faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
 //  await faceapi.nets.faceExpressionNet.loadFromUri('/models'),
 await faceapi.nets.ageGenderNet.loadFromUri('models')
@@ -67,12 +67,12 @@ boxheight = resizedDetections[i].alignedRect._box._height
 // express = Object.keys(keysSorted)[0];
 // score = Object.values(keysSorted)[0];
 
-age = resizedDetections[i].age
+//age = resizedDetections[i].age
 gender = resizedDetections[i].gender
 genderprob = resizedDetections[i].genderProbability
 
 if (resizedDetections.length> 0){
-blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,age,gender);
+blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
 }
  if (resizedDetections.length < blocks.length){
  	blocks.shift();
