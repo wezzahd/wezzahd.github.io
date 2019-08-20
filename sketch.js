@@ -7,6 +7,7 @@ var varboxx, varboxy, boxwidth, boxheight;
 var emotion;
 var express, score, age, gender, genderprob
 var blocks = [];
+var pg;
 
 //loads models for face detection
 async function pre() {
@@ -98,6 +99,7 @@ pre();
   capture.elt.setAttribute('playsinline', '');
   capture.size(width, height);
   capture.hide();
+  pg = createGraphics(width,height);
 }
 
 function draw() {
@@ -112,20 +114,22 @@ updateDetections();
 	// }
 
 	drawDetect();
+  image(pg,0,0, width,height);
 
 }
 
 function drawDetect() {
-	noFill();
-	stroke(255,0,0);
-	noFill();
-	rect(varboxx,varboxy,boxwidth,boxheight);
-	noStroke();
-	fill(255,0,0);
-	textSize(16);
-	text(express, ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +10));
-	text(int(score*100)+"% confidence", ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +30));
-	text("age:"+ int(age), ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +50));
-	text(gender, ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +70));
+  pg.background(0);
+	pg.noFill();
+	pg.stroke(255,0,0);
+	pg.noFill();
+	pg.rect(varboxx,varboxy,boxwidth,boxheight);
+	pg.noStroke();
+	pg.fill(255,0,0);
+	pg.textSize(16);
+	pg.text(express, ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +10));
+	pg.text(int(score*100)+"% confidence", ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +30));
+	pg.text("age:"+ int(age), ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +50));
+	pg.text(gender, ((varboxx+boxwidth+ 10)- ((varboxx+boxwidth+ 10)/2)), (varboxy+boxheight +70));
 
 }
