@@ -100,7 +100,7 @@ pre();
 
   capture.size(width, height);
   capture.hide();
-  //pg = createGraphics(width,height);
+  pg = createGraphics(width,height);
 }
 
 function draw() {
