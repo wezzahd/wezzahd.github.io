@@ -104,12 +104,12 @@ function draw() {
   background(220);
 //	if(!ready) text('loading model...', width/2, height/2)
 // if(detecting) text('detecting...', width/2, height/2)
-  image(capture,0,0);
+  image(capture,0,0, width,height);
 updateDetections();
-
-	for (var i = 0; i < blocks.length; i++) {
-		blocks[i].display();
-	}
+  //
+	// for (var i = 0; i < blocks.length; i++) {
+	// 	blocks[i].display();
+	// }
 
 //	drawDetect();
 
