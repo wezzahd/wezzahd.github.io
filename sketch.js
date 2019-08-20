@@ -31,6 +31,7 @@ async function updateDetections() {
    if(!capture.elt) return;
   capture.elt.removeAttribute('crossorigin')
   capture.elt.setAttribute('autoplay', '')
+  capture.elt.setAttribute('playsinline', '');
  //console.log('updating detections', detecting, ready, capture.elt)
  detecting = true;
 //const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
@@ -39,22 +40,22 @@ const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFac
 //const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
 
 //console.log(detections);
-const canvas = document.getElementById('mycanvas')  //id required for p5 canvas
-const displaySize = { width: capture.width, height: capture.height }
-//console.log(canvas)
-faceapi.matchDimensions(mycanvas, displaySize)
-const resizedDetections = faceapi.resizeResults(detections, displaySize);
-//console.log(resizedDetections);
-
-//Face detection for rect
-
+ const canvas = document.getElementById('mycanvas')  //id required for p5 canvas
+ const displaySize = { width: capture.width, height: capture.height }
+// //console.log(canvas)
+//faceapi.matchDimensions(mycanvas, displaySize) //CRASHES CANVAS with SAFARI
+ const resizedDetections = faceapi.resizeResults(detections, displaySize);
+// //console.log(resizedDetections);
+//
+// //Face detection for rect
+//
 for (var i = 0; i < resizedDetections.length; i++) {
-
-varboxx = resizedDetections[i].alignedRect._box._x
+//
+ varboxx = resizedDetections[i].alignedRect._box._x
 varboxy = resizedDetections[i].alignedRect._box._y
-
-boxwidth = resizedDetections[i].alignedRect._box._width
-boxheight = resizedDetections[i].alignedRect._box._height
+//
+ boxwidth = resizedDetections[i].alignedRect._box._width
+ boxheight = resizedDetections[i].alignedRect._box._height
 
 ////Get expressions and sort by prob score - highest first.
 
@@ -68,9 +69,9 @@ boxheight = resizedDetections[i].alignedRect._box._height
 // express = Object.keys(keysSorted)[0];
 // score = Object.values(keysSorted)[0];
 
-//age = resizedDetections[i].age
-gender = resizedDetections[i].gender
-genderprob = resizedDetections[i].genderProbability
+age = resizedDetections[i].age
+ gender = resizedDetections[i].gender
+ genderprob = resizedDetections[i].genderProbability
 
 if (resizedDetections.length> 0){
 blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
@@ -78,9 +79,9 @@ blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
  if (resizedDetections.length < blocks.length){
  	blocks.shift();
 }
-
+//
 }
-//console.log(blocks);
+// //console.log(blocks);
 
 }
 
@@ -96,7 +97,7 @@ pre();
   cnv = createCanvas(320, 240);
 	cnv.id('mycanvas');
   capture = createCapture(VIDEO);
-  capture.elt.setAttribute('playsinline', '');
+
   capture.size(width, height);
   capture.hide();
   //pg = createGraphics(width,height);
@@ -106,7 +107,7 @@ function draw() {
   background(220);
 //	if(!ready) text('loading model...', width/2, height/2)
 // if(detecting) text('detecting...', width/2, height/2)
-image(capture,0,0);
+//image(capture,0,0);
 updateDetections();
 
 	for (var i = 0; i < blocks.length; i++) {
@@ -115,6 +116,9 @@ updateDetections();
 
 	// drawDetect();
   // image(pg,0,0, width,height);
+
+  // fill(0);
+  // rect(10,10,40,40);
 
 }
 
