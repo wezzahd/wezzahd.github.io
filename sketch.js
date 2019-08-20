@@ -33,9 +33,9 @@ async function updateDetections() {
  //console.log('updating detections', detecting, ready, capture.elt)
  detecting = true;
 //const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
-//const useTinyModel = true
-//const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks(useTinyModel).withAgeAndGender()
-const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
+const useTinyModel = true
+const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks(useTinyModel).withAgeAndGender()
+//const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
 
 //console.log(detections);
 const canvas = document.getElementById('mycanvas')  //id required for p5 canvas
