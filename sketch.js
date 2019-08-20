@@ -55,7 +55,7 @@ varboxy = resizedDetections[i].alignedRect._box._y
 boxwidth = resizedDetections[i].alignedRect._box._width
 boxheight = resizedDetections[i].alignedRect._box._height
 
-//Get expressions and sort by prob score - highest first.
+////Get expressions and sort by prob score - highest first.
 
 //var expression = resizedDetections[i].expressions
 
