@@ -91,9 +91,9 @@ blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
 
 
 function setup() {
-pre();
+//pre();
   cnv = createCanvas(320, 240);
-	cnv.id('mycanvas');
+	//cnv.id('mycanvas');
   capture = createCapture(VIDEO);
   capture.elt.setAttribute('playsinline', '');
   capture.size(width, height);
@@ -102,8 +102,8 @@ pre();
 
 function draw() {
   background(220);
-	if(!ready) text('loading model...', width/2, height/2)
- if(detecting) text('detecting...', width/2, height/2)
+//	if(!ready) text('loading model...', width/2, height/2)
+// if(detecting) text('detecting...', width/2, height/2)
   image(capture,0,0,width,height);
 	// updateDetections();
   //
