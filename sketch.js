@@ -109,13 +109,13 @@ function draw() {
 // if(detecting) text('detecting...', width/2, height/2)
 //image(capture,0,0);
 updateDetections();
+  //
+	// for (var i = 0; i < blocks.length; i++) {
+	// 	blocks[i].display();
+	// }
 
-	for (var i = 0; i < blocks.length; i++) {
-		blocks[i].display();
-	}
-
-	// drawDetect();
-  // image(pg,0,0, width,height);
+ drawDetect();
+   image(pg,0,0, width,height);
 
   // fill(0);
   // rect(10,10,40,40);
