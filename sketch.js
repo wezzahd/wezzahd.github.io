@@ -73,6 +73,8 @@ age = resizedDetections[i].age
  gender = resizedDetections[i].gender
  genderprob = resizedDetections[i].genderProbability
 
+ console.log(genderprob)
+
 if (resizedDetections.length> 0){
 blocks[i] = new Block(varboxx,varboxy,boxwidth,boxheight,gender,genderprob);
 }
