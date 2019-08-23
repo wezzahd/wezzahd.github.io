@@ -15,12 +15,12 @@ var buttonx, buttony;
 var instruction_toggle = false;
 var gohome = false;
 var counter = 0;
-var countermax = 500;
+var countermax = 200;
 var lerper = 0;
 var inner;
 var reset = false;
 var lfotri = 0;
-var hue;
+var genderhue;
 
 var scl = 0.001; // scale of noisefield, [+/-] to zoom in/out
 
@@ -49,6 +49,7 @@ const hueMultiplier = 600;//500.0;
 const accMultiplier = 8 * Math.PI;
 
 let updateDetectRunning = false;
+let facedetected = false;
 
 
 document.addEventListener('touchmove', function(event) {
@@ -70,40 +71,6 @@ function preload() {
   }
 preload_facedetection();
 }
-
-
-
-function centerCanvas() {
-
-// if (isMobile == false) {
-//
-//   var cnv_x = (windowWidth - width) / 2;
-//   var cnv_y = (windowWidth - height) / 2;
-//   cnv.position(cnv_x, cnv_y);
-//}else{
-  inner = iosInnerHeight();
-  var cnv_x = (windowWidth - width) / 2;
-  var cnv_y = (inner - height) / 2;
-  cnv.position(cnv_x, cnv_y);
-//}
-}
-
-function make2Darray(cols, rows) {
-  var arr = new Array(rows);
-  for (var i = 0; i < arr.length; i++) {
-    arr[i] = new Array(cols);
-  }
-  return arr;
-}
-
-function capturecam() {
-  capture = createCapture(VIDEO, ready);
-  capture.elt.setAttribute('playsinline', '');
-  capture.size(width, height);
-  capture.hide();
-}
-
-
 
 function setup() {
 
@@ -136,8 +103,28 @@ capturecam();
 
 function draw() {
 
+
+//console.log(frameRate());
+
+if( updateDetectRunning == false){
+background(0);
+textSize(24);
+fill(255);
+text("loading...",width/2,height/2);
 updateDetections();
-console.log(frameRate());
+  }
+
+
+ if (main_animation == true && counter == 199) {
+   updateDetections();
+}
+
+if (facedetected == true) {
+  camerashutter();
+  console.log('click');
+  facedetected = false;
+
+}
 
 if( updateDetectRunning == true){
   if (main_animation == false) {
@@ -146,282 +133,10 @@ if( updateDetectRunning == true){
     noiseDraw();
   }
 }
-}
 
+console.log(counter)
 
-function loadingScreen() {
 
-  pg.background(0);
-
-  pg.noFill();
-
-  // if (frameCount < 90) {
-  //
-  //   var ellsize = map(frameCount, 0, 90, eraser_size * 8, eraser_size * 2);
-  // } else {
-  //   var ellsize = (eraser_size * 2);
-  // }
-
-// if(isMobile == false) {
-
-//   pg.imageMode(CENTER);
-//   pg.image(capture, width/2,height/2,width,width * capture.height / capture.width);
-
-// }else{
-
-  pg.image(capture,0,0,width,height);
-// }
-
-  buttonx = width/2;
-    buttony = (height-(height/6));
-
-  pg.fill(127,160);
-  pg.noStroke()
-  pg.ellipseMode(CENTER);
-  pg.ellipse(buttonx,buttony, 90, 90);
-
-
-  pg.fill(255);
-  pg.noStroke()
-  pg.ellipseMode(CENTER);
-  pg.ellipse(buttonx,buttony, 65,65);
-
-
-  if (instruction_toggle == false) {
-  pg.noFill();
-  pg.stroke(255)
-  pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
-  }else{
-     pg.noStroke();
-  pg.fill(255)
-  pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
-  }
-
-
-
-
-
-
-  // if (loading_alpha <= 0) {
-  //   still();
-  //   main_animation = true;
-  //   trigger = false;
-  // }
-
-
-
-  if (instruction_toggle == true) {
-  instructions();
-  }
-
-  image(pg, 0, 0);
-
-
-}
-
-
-function instructions () {
-
-  for (var m = 0; m < width; m += skip) {
-        for (var n = 0; n < height; n += skip) {
-
-
-          pg.noFill();
-          pg.strokeWeight(.5);
-  pg.stroke(255,127);
-  pg.rectMode(CENTER);
-  pg.rect(m,n, skip, skip);
-
-
-        }
-      }
-
-
-  pg.noStroke();
-  pg.fill(80,127);
-  pg.rectMode(CENTER);
-  pg.rect(width/2,height/2, width, height);
-
-
-
-
-
- pg.noStroke();
-  pg.fill(255, 150);
-  pg.textAlign(CENTER, CENTER);
-
-  if (isMobile == false) {
-    pg.textSize(24);
-  } else {
-    pg.textSize(24);
-  }
-
-
- pg.textFont("VT323");
-
-  pg.noStroke();
-  pg.fill(255, 255);
-
-  pg.textAlign(CENTER, CENTER);
-
-  if (isMobile == false) {
-    pg.text('click here for fullscreen', width / 2, (40));
-  }
-
-  if (isAndroid == true && width < height) {
-    pg.text('click here for fullscreen', width / 2, (40));
-  }
-
-  if (isAndroid == true && height < width) {
-    pg.text('click here for fullscreen', width / 2, (40));
-  }
-
-
-  pg.textAlign(CENTER, CENTER);
-
-
-
-
-
-
-  if (isMobile == false) {
-
-     pg.textSize(70);
-     pg.text('n o i s e', width / 2, height/3);
-
-     pg.textSize(24);
-
-    pg.text('click button to start', width / 2, (height -20));
-
-    pg.text('mouse click to reset', width / 2, height/2);
-
-  } else {
-
-    pg.text('n o i s e', width / 2, height/6);
-    pg.text('tap button to start', width / 2, (height -20));
-       pg.text('touch to reset', width / 2, height/3+20);
-
-  }
-
-//   if (isMobile == false) {
-
-//    // pg.text('click and hold mouse button', width / 2,  height/2 +40);
-//    // pg.text('to reconstruct image', width / 2, height/2+60);
-
-//   } else {
-//     pg.text('two finger touch and hold', width / 2, (height - height/3)-40);
-//     pg.text('to reconstruct image', width / 2, (height - height/3)-20);
-//   }
-}
-
-
-
-
-
-function noiseSetup() {
-
-  timeLastFrame = millis();
-  //colorMode(HSB, 255);
-
-  cols = int(width / skip);
-  rows = int(height / skip);
-  //  rows = int((width * capture.height / capture.width) / w);
-
-  capture.size(cols, rows);
-  particles = make2Darray(cols, rows);
-
-  for (var y = 0; y < rows; y++) {
-    for (var x = 0; x < cols; x++) {
-
-    particles[y][x] = new Particle(x * skip, y * skip);
-    }
-  }
-}
-
-function noiseDraw() {
-
-  blendMode(BLEND);
-    background(0);
-  blendMode(ADD);
-noCursor();
-
-
-lfo();
-//  var zoom = map(counter,0, 200, .25, 1.0); // use settings for insta docs
-  // var zoom = map(counter,0, countermax, .25, 1.0);
-  // translate(width/2 - ((width/2)*zoom) ,height/2 - ((height/2)*zoom));
-  // scale(zoom);
-
-
-  if (counter < countermax) {
-    counter = counter + 1;
-    lerper = constrain((lerper + 0.01),0,1);
-
-  }
-
-if (reset == true) {
-  counter = 0;
-  lerper = 0;
-  reset = false;
-}
-
-//console.log(counter);
-
-var timePassed = (millis() - timeLastFrame) / 1000.0;
-  timeLastFrame = millis();
-
-  xMove += xSpeed * timePassed;
-  yMove += ySpeed * timePassed;
-  zMove += zSpeed * timePassed;
-
-  for (var y = 0; y < rows; y++) {
-    for (var x = 0; x < cols; x++) {
-      particles[y][x].calculateForce();
-      particles[y][x].display();
-      particles[y][x].behaviours();
-      particles[y][x].update();
-    }
-  }
-
-}
-
-function getColour() {
-
-
-
-  capture.loadPixels();
-  loadPixels();
-
-if (gender == 'male') {
-  hue = 240;
-}else{
-  hue = 343;
-}
-  console.log(hue);
-
-    for (y = 0; y < rows; y++) {
-      for (x = 0; x < cols; x++) {
-
-        //var pixel = capture.get(x, y);
-
-        let d = pixelDensity();
-        index = 4 * ((y * d) * capture.width * d + (x * d));
-
-      particles[y][x].setToColor(capture.pixels[index], capture.pixels[index + 1], capture.pixels[index +2],hue);
-
-
-      // console.log("set color");
-    // //var pixel = get(mouseX, mouseY);
-    //   for (y = 0; y < rows; y++) {
-    //     for (x = 0; x < cols; x++) {
-    //       var pixel = capture.get(x, y);
-    //
-    //       particles[y][x].setToColor(pixel[0], pixel[1], pixel[2]);
-    //      console.log("set color");
-       }
-     }
 }
 
 function windowResized() {
@@ -463,46 +178,13 @@ function windowResized() {
  }
 }
 
-// calculate force from noisefield
-function calculateForce(x, y, z) {
-  return noise(x * scl + xMove, y * scl + yMove, z + zMove);
-}
-
-function lfo () {
-
-if (lfotri < 1) {
-  lfotri = lfotri + (frameCount/1000000);
-//  console.log(lfotri);
-}
-
-if (lfotri >= 1){
-  gohome = !gohome;
-reset = !reset;
-lfotri = 0;
-console.log(gohome);
- console.log(reset);
-}
-
-//   var sine = abs(1 * sin(TWO_PI * frameCount / 600));
-// if (sine > 0.99){
-//   gohome = !gohome;
-//   reset = !reset;
-//  console.log(gohome);
-//  console.log(reset);
-
-
-//  console.log(sine);
-
-}
-
-
-
 
 function touchMoved(event) {
   return false;
 }
 
 function mousePressed() {
+
 
    if (mouseIsPressed == true && mouseX > (buttonx - 35) && mouseX < (buttonx + 35) && mouseY > (buttony - 35) && mouseY < (buttony + 35) && main_animation ==  false) {
     noiseSetup();
@@ -531,15 +213,25 @@ function mousePressed() {
 
   if (mouseX < width && mouseX > 0 && main_animation == true) {
     if (mouseY < height && mouseY > 0 && main_animation == true) {
-   getColour();
-   counter = 0;
-   lerper = 0;
-   gohome = false;
-   reset = false;
-   lfotri = 0;
+   camerashutter();
     }
   }
 }
+
+function camerashutter() {
+  getColour();
+//  gohome = true;
+  //reset = !reset;
+  console.log(gohome);
+  console.log(reset);
+  //counter = 0;
+//  lerper = 0;
+// gohome = false;
+// reset = false;
+  //lfotri = 0;
+}
+
+
 
 function keyPressed() {
 

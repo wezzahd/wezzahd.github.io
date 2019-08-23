@@ -38,6 +38,11 @@ behaviours() {
   //console.log(getnoisy);
   this.applyForce(rgborig);
 
+  var d = dist(this.rgb.x,this.rgb.y,this.rgb.z,this.rgborig.x,this.rgborig.y,this.rgborig.z);
+  if (d < 1) {
+    gohome=false;
+  }
+
 }
 }
 
@@ -64,13 +69,6 @@ behaviours() {
       this.setHue(force * hueMultiplier);
 
 
-          // if (gohome == false) {
-          //   this.sizerr = map(this.rgb.x,0,255, 0, 3);
-          //  // this.alpha = floor((this.rgb.x + this.rgb.y +this.rgb.z)/6);
-          // }else{
-          //   this.sizerr = map(this.sizerr, 0, 3, this.sizerr, 1);
-          //   //this.alpha = 255;
-          // }
 
           if (counter < countermax && gohome == false) {
 
@@ -91,7 +89,7 @@ if (gohome == true) {
 
    setHue(force) {
 
-     if (counter == countermax){
+     if (counter == countermax - 2){
       if (force > 360) {
               this.hsb.x = force % 361;
         } else {

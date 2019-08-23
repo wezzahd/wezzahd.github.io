@@ -2,7 +2,7 @@
 let modelsloaded = false;
 let detecting = false;
 //let detections = [];
-let gender, genderprob
+let gender, genderprob, box_x, box_y, boxwidth, boxheight
 
 
 
@@ -22,6 +22,7 @@ async function preload_facedetection() {
 
 
 async function updateDetections() {
+  console.log('awake')
 	//if(detecting) return;
   if(!modelsloaded) return;
    if(!capture.elt) return;
@@ -40,16 +41,26 @@ async function updateDetections() {
 
  const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
+ //console.log(resizedDetections)
+
  if(resizedDetections.length > 0){
-updateDetectRunning = true;
- }
+   updateDetectRunning = true;
+}
+
+
+if (resizedDetections.length > 0 && main_animation == true){
+  facedetected = true;
+}else {
+  facedetected = false;
+}
+
 
  for (var i = 0; i < resizedDetections.length; i++) {
 
  gender = resizedDetections[i].gender
  genderprob = resizedDetections[i].genderProbability
- //console.log(gender)
- //console.log(genderprob)
+// console.log(gender)
+// console.log(genderprob)
  }
 
 }
