@@ -18,6 +18,86 @@ function make2Darray(cols, rows) {
 function capturecam() {
   capture = createCapture(VIDEO, ready);
   capture.elt.setAttribute('playsinline', '');
-  capture.size(width, height);
+  //capture.size(width, height);
   capture.hide();
+}
+
+function imageaspectratio(pg) {
+  var aspectRatiow = width / capture.width;
+   var aspectRatioh = height / capture.height;
+
+   //console.log(aspectRatiow, aspectRatioh)
+
+   pg.push();
+   if (aspectRatiow > 1 && aspectRatioh < 1) {
+     pg.translate(width/2,height/2);
+     pg.scale(aspectRatiow);
+     pg.imageMode(CENTER);
+     pg.image(capture,0,0);
+ }
+
+ if (aspectRatiow < 1 && aspectRatioh > 1) {
+   pg.translate(width/2,height/2);
+   pg.scale(aspectRatioh);
+   pg.imageMode(CENTER);
+   pg.image(capture,0,0);
+ }
+
+ if (aspectRatiow > 1 && aspectRatioh > 1) {
+   pg.translate(width/2,height/2);
+
+if (aspectRatiow > aspectRatioh) {
+    pg.scale(aspectRatiow);
+  }else{
+    pg.scale(aspectRatioh);
+  }
+    pg.imageMode(CENTER);
+    pg.image(capture,0,0);
+  }
+
+ if (aspectRatiow <= 1 && aspectRatioh <= 1) {
+   pg.imageMode(CENTER);
+   pg.image(capture,width/2,height/2);
+ }
+ pg.pop();
+}
+
+function imageaspectratiomain(mainanimation) {
+    var aspectRatiow = width / capture.width;
+    var aspectRatioh = height / capture.height;
+
+  //  console.log(aspectRatiow, aspectRatioh)
+
+  mainanimation.push();
+   if (aspectRatiow > 1 && aspectRatioh < 1) {
+     mainanimation.translate(width/2,height/2);
+     mainanimation.scale(aspectRatiow);
+     mainanimation.imageMode(CENTER);
+     mainanimation.image(capture,0,0);
+ }
+
+ if (aspectRatiow < 1 && aspectRatioh > 1) {
+   mainanimation.translate(width/2,height/2);
+  mainanimation.scale(aspectRatioh);
+  mainanimation.imageMode(CENTER);
+  mainanimation.image(capture,0,0);
+ }
+
+ if (aspectRatiow > 1 && aspectRatioh > 1) {
+   mainanimation.translate(width/2,height/2);
+
+if (aspectRatiow > aspectRatioh) {
+  mainanimation.scale(aspectRatiow);
+  }else{
+  mainanimation.scale(aspectRatioh);
+  }
+  mainanimation.imageMode(CENTER);
+  mainanimation.image(capture,0,0);
+  }
+
+ if (aspectRatiow <= 1 && aspectRatioh <= 1) {
+  mainanimation.imageMode(CENTER);
+  mainanimation.image(capture,width/2,height/2);
+ }
+mainanimation.pop();
 }

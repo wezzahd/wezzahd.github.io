@@ -4,11 +4,10 @@ function loadingScreen() {
 
   pg.noFill();
 
-  pg.image(capture,0,0,width,height);
-
+  imageaspectratio(pg);
 
   buttonx = width/2;
-    buttony = (height-(height/6));
+  buttony = (height-(height/6));
 
   pg.fill(127,160);
   pg.noStroke()

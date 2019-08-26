@@ -12,7 +12,7 @@ async function preload_facedetection() {
   console.log('loading models')
 	await faceapi.nets.tinyFaceDetector.loadFromUri('models'),
   //await faceapi.nets.faceLandmark68TinyNet.loadFromUri('models'),
-  await faceapi.nets.ageGenderNet.loadFromUri('models')
+  //await faceapi.nets.ageGenderNet.loadFromUri('models')
 
   modelsloaded = true
   console.log(faceapi.nets)
@@ -34,7 +34,8 @@ async function updateDetections() {
 
  const useTinyModel = true
 
- const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 })).withAgeAndGender()
+ //const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 })).withAgeAndGender()
+ const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 }))
 
  const canvas = document.getElementById('mycanvas')  //id required for p5 canvas
  const displaySize = { width: capture.width, height: capture.height }
@@ -55,12 +56,12 @@ if (resizedDetections.length > 0 && main_animation == true){
 }
 
 
- for (var i = 0; i < resizedDetections.length; i++) {
+ //for (var i = 0; i < resizedDetections.length; i++) {
 
- gender = resizedDetections[i].gender
- genderprob = resizedDetections[i].genderProbability
+// gender = resizedDetections[i].gender
+ //genderprob = resizedDetections[i].genderProbability
 // console.log(gender)
 // console.log(genderprob)
- }
+// }
 
 }

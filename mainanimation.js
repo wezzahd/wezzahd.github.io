@@ -4,9 +4,8 @@ function noiseSetup() {
 
   cols = int(width / skip);
   rows = int(height / skip);
-  //  rows = int((width * capture.height / capture.width) / w);
 
-  capture.size(cols, rows);
+  mainanimation = createGraphics(width,height);
 
   particles = make2Darray(cols, rows);
 
@@ -24,6 +23,7 @@ function noiseDraw() {
   background(0);
   blendMode(ADD);
 
+//console.log(init)
 //console.log('particle count ' + (cols*rows));
 //console.log(capture.width, capture.height);
 
@@ -34,15 +34,19 @@ function noiseDraw() {
     lerper = constrain((lerper + 0.01),0,1);
   }
 
-  if (counter == countermax) {
-    counter = 0;
-  }
+  // if (counter == countermax) {
+  //   counter = 0;
+  // }
 
 if (reset == true) {
-  //counter = 0;
+  counter = 0;
   lerper = 0;
   reset = false;
 }
+
+
+
+
 
 //console.log(counter);
 
@@ -59,30 +63,50 @@ var timePassed = (millis() - timeLastFrame) / 1000.0;
       particles[y][x].display();
       particles[y][x].behaviours();
       particles[y][x].update();
+      particles[y][x].partvalue();
+//
+// // return go home check
+if (gohome == true){
+   va =  particles[y][x].partvalue();
+ }
+ //count += va;
+// console.log('count' +count);
+
     }
-  }
+    }
+
+if (va == 0) {
+  count += 1;
+  //console.log('count' +count);
+ if (count == 4 && gohome == true){
+  goHome();
+ }
+ if (count == 10) {  //allow time for RGB values to change
+   count = 0;
+ }
+   }
 
 }
+
+
 
 function getColour() {
 
-  capture.loadPixels();
-  loadPixels();
 
-if (gender == 'male') {
-  genderhue = 240;
-}else{
-  genderhue = 0;
-}
-  //console.log(hue);
+  imageaspectratiomain(mainanimation);
+
+  let test = mainanimation.get();
+  test.resize(cols,rows);
+  test.loadPixels();
+  loadPixels();
 
     for (y = 0; y < rows; y++) {
       for (x = 0; x < cols; x++) {
 
         let d = pixelDensity();
-        index = 4 * ((y * d) * capture.width * d + (x * d));
+        index = 4 * ((y * d) * test.width * d + (x * d));
 
-      particles[y][x].setToColor(capture.pixels[index], capture.pixels[index + 1], capture.pixels[index +2], genderhue);
+      particles[y][x].setToColor(test.pixels[index], test.pixels[index + 1], test.pixels[index +2]);
        }
      }
 }
@@ -100,12 +124,25 @@ if (lfotri < 1) {
 }
 
 if (lfotri >= 1){
+
+
   gohome = !gohome;
 reset = !reset;
 lfotri = 0;
 console.log(gohome);
  console.log(reset);
 }
+}
 
+function goHome() {
+  gohome = !gohome; // trigger particle transition
+  reset = !reset;
+}
 
+function camerashutter() {
+  getColour();
+  init = init + 1;
+    if (init > 1){
+      goHome();
+    }
 }

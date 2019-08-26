@@ -14,13 +14,21 @@ let bg;
 var buttonx, buttony;
 var instruction_toggle = false;
 var gohome = false;
+var reset = false;
 var counter = 0;
-var countermax = 200;
+var countermax = 1000;
 var lerper = 0;
 var inner;
 var reset = false;
 var lfotri = 0;
 var genderhue;
+
+var mousetimer = false;
+
+
+var init = 0; //camera shutter init
+
+var mainanimation;
 
 var scl = 0.001; // scale of noisefield, [+/-] to zoom in/out
 
@@ -51,6 +59,8 @@ const accMultiplier = 8 * Math.PI;
 let updateDetectRunning = false;
 let facedetected = false;
 
+var va = 1;
+var count = 0;
 
 document.addEventListener('touchmove', function(event) {
   if (event.scale !== 1) {
@@ -96,8 +106,8 @@ function setup() {
   }
 
 capturecam();
-  pixelDensity(1);
-  pg = createGraphics(width, height);
+pixelDensity(1);
+pg = createGraphics(width, height);
 
 }
 
@@ -107,34 +117,40 @@ function draw() {
 //console.log(frameRate());
 
 if( updateDetectRunning == false){
-background(0);
-textSize(24);
-fill(255);
-text("loading...",width/2,height/2);
-updateDetections();
+  background(0);
+  textSize(24);
+  fill(255);
+  textAlign(CENTER,CENTER);
+  text("loading...",width/2,height/2);
+  updateDetections();
   }
 
 
- if (main_animation == true && counter == 199) {
+ if (main_animation == true && counter == (countermax -1)) {
    updateDetections();
+   mousetimer = false;
 }
 
-if (facedetected == true) {
+if (main_animation == true && counter == (countermax - 20)) {
+  mousetimer = false;
+}
+
+if (facedetected == true && init >= 1 && mousetimer == false) { //add spacing between mouse and facedetection events
   camerashutter();
   console.log('click');
   facedetected = false;
-
 }
 
 if( updateDetectRunning == true){
   if (main_animation == false) {
     loadingScreen();
+
   } else {
     noiseDraw();
   }
 }
 
-console.log(counter)
+//console.log('camerashutter ' +init);
 
 
 }
@@ -163,21 +179,16 @@ function windowResized() {
   //if (isMobile ==false &&
     if (main_animation == true) {
     resizeCanvas(windowWidth, windowHeight);
-    //capturecam();
-    //centerCanvas();
     noiseSetup();
     setTimeout(getColour, 1000);
     } else {
     pg.clear();
     resizeCanvas(windowWidth, windowHeight);
-    //capturecam();
-        //  centerCanvas();
     pg = createGraphics(width, height);
     loadingScreen();
 }
  }
 }
-
 
 function touchMoved(event) {
   return false;
@@ -196,7 +207,7 @@ function mousePressed() {
     fullscreen(!fs);
     //Remove vert scroll bar in fullScreen
      document.body.scrollTop = 0; // <-- pull the page back up to the top
-      document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
   }
 
 
@@ -213,32 +224,17 @@ function mousePressed() {
 
   if (mouseX < width && mouseX > 0 && main_animation == true) {
     if (mouseY < height && mouseY > 0 && main_animation == true) {
-   camerashutter();
+  camerashutter();
+  mousetimer = true;
     }
   }
 }
-
-function camerashutter() {
-  getColour();
-//  gohome = true;
-  //reset = !reset;
-  console.log(gohome);
-  console.log(reset);
-  //counter = 0;
-//  lerper = 0;
-// gohome = false;
-// reset = false;
-  //lfotri = 0;
-}
-
-
 
 function keyPressed() {
 
   if (key == 'h' || key == 'H') {
 
-    gohome = !gohome;
-    reset = !reset;
+    goHome();
     console.log(gohome);
     console.log(reset);
   }else{
