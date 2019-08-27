@@ -42,7 +42,7 @@ async function updateDetections() {
 
  const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
- //console.log(resizedDetections)
+ console.log(resizedDetections)
 
  if(resizedDetections.length > 0){
    updateDetectRunning = true;
@@ -54,7 +54,7 @@ if (resizedDetections.length > 0 && main_animation == true){
 }else {
   facedetected = false;
 }
-
+  console.log(facedetected)
 
  //for (var i = 0; i < resizedDetections.length; i++) {
 
