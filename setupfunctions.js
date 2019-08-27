@@ -28,7 +28,16 @@ function imageaspectratio(pg) {
 
    //console.log(aspectRatiow, aspectRatioh)
 
+
+
+
    pg.push();
+
+    pg.translate(width,0);
+     pg.scale(-1, 1);
+
+
+
    if (aspectRatiow > 1 && aspectRatioh < 1) {
      pg.translate(width/2,height/2);
      pg.scale(aspectRatiow);
@@ -66,9 +75,17 @@ function imageaspectratiomain(mainanimation) {
     var aspectRatiow = width / capture.width;
     var aspectRatioh = height / capture.height;
 
+
+
   //  console.log(aspectRatiow, aspectRatioh)
 
   mainanimation.push();
+
+mainanimation.translate(width,0);
+   mainanimation.scale(-1, 1);
+
+
+
    if (aspectRatiow > 1 && aspectRatioh < 1) {
      mainanimation.translate(width/2,height/2);
      mainanimation.scale(aspectRatiow);
