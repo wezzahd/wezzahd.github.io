@@ -143,6 +143,7 @@ if (facedetected == true && init >= 1 && mousetimer == false) { //add spacing be
 
 if( updateDetectRunning == true){
   if (main_animation == false) {
+    updateDetections();
     loadingScreen();
 
   } else {
