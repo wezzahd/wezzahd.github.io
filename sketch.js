@@ -25,6 +25,8 @@ var genderhue;
 
 var mousetimer = false;
 
+var facedet_inputsize = 320;
+
 
 var init = 0; //camera shutter init
 
@@ -144,7 +146,7 @@ if (main_animation == true && facedetected == true && init >= 1 && mousetimer ==
 
 if( updateDetectRunning == true){
   if (main_animation == false) {
-    updateDetections();
+    //updateDetections();
     loadingScreen();
 
   } else {

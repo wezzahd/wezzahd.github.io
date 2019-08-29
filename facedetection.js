@@ -34,16 +34,24 @@ async function updateDetections() {
 
  const useTinyModel = true
 
+
+
  //const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 })).withAgeAndGender()
- const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: 512 })) //add Mobile check 128.  512 for gallery install
+if (isMobile == false && width >= 1079) {
+  facedet_inputsize = 512;
+}
+
+ const detections = await faceapi.detectAllFaces(capture.elt, new faceapi.TinyFaceDetectorOptions({ inputSize: facedet_inputsize })) //add Mobile check 128.  512 for gallery install
 
  const canvas = document.getElementById('mycanvas')  //id required for p5 canvas
  const displaySize = { width: capture.width, height: capture.height }
 
  const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
- console.log(resizedDetections)
- console.log('test')
+//DEBUG
+
+ //console.log(resizedDetections)
+ //console.log('test')
 
  if(resizedDetections.length > 0){
    updateDetectRunning = true;
