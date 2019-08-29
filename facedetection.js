@@ -42,7 +42,8 @@ async function updateDetections() {
 
  const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
-// console.log(resizedDetections)
+ console.log(resizedDetections)
+ console.log('test')
 
  if(resizedDetections.length > 0){
    updateDetectRunning = true;

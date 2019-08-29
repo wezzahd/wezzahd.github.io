@@ -112,7 +112,8 @@ pg = createGraphics(width, height);
 }
 
 function draw() {
-updateDetections();
+
+//updateDetections();
 
 //console.log(frameRate());
 
@@ -135,7 +136,7 @@ if (main_animation == true && counter == (countermax - 20)) {
   mousetimer = false;
 }
 
-if (facedetected == true && init >= 1 && mousetimer == false) { //add spacing between mouse and facedetection events
+if (main_animation == true && facedetected == true && init >= 1 && mousetimer == false) { //add spacing between mouse and facedetection events
   camerashutter();
   console.log('click');
   facedetected = false;
@@ -143,6 +144,7 @@ if (facedetected == true && init >= 1 && mousetimer == false) { //add spacing be
 
 if( updateDetectRunning == true){
   if (main_animation == false) {
+    updateDetections();
     loadingScreen();
 
   } else {
