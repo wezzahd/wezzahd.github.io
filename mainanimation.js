@@ -77,7 +77,7 @@ if (gohome == true){
 
 if (va == 0 && gohome == true ) {
   count += 1;
-  console.log('count' +count);
+//  console.log('count' +count);
  if (count == 4 && gohome == true){
   goHome();
  }
