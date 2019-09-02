@@ -129,8 +129,8 @@ if( updateDetectRunning == false){
   fill(255);
   push();
   imageMode(CENTER);
-  image(pixel,width/2,height/2,150,150);
-pop();
+  image(pixel,width/2,height/2,70,70);
+  pop();
   textAlign(CENTER,CENTER);
   text("loading...",width/2,height/2+ 45);
   updateDetections();
