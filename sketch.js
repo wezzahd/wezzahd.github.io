@@ -163,7 +163,7 @@ if( updateDetectRunning == true){
 }
 
 //console.log('camerashutter ' +init);
-console.log("counter " +counter)
+//console.log("counter " +counter)
 
 
 }
