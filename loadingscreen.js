@@ -55,7 +55,9 @@ function instructions () {
     pg.strokeWeight(.5);
   pg.stroke(255,127);
   pg.rectMode(CENTER);
-  pg.rect(m,n, skip, skip);
+  pg.rect(m + (skip/3) ,n, skip/3, skip);
+  pg.rect(m + (skip/3*2) ,n, skip/3, skip);
+  pg.rect(m + (skip/3*3) ,n, skip/3, skip);
 
 
         }
@@ -82,7 +84,7 @@ function instructions () {
   }
 
 
- pg.textFont("VT323");
+ pg.textFont("Oswald");
 
   pg.noStroke();
   pg.fill(255, 255);
