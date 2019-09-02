@@ -49,16 +49,16 @@ class Particle {
     if (d <= 1.0 && this.gohome == true ){
      //goHome();
      this.value = 0;
-  }else{
-   this.value = 1;
-   }
-}
+      }else{
+        this.value = 1;
+      }
+    }
 }
 
-partvalue(){
-var pvalue = this.value;
-return pvalue;
-}
+    partvalue() {
+      var pvalue = this.value;
+      return pvalue;
+    }
 
     update() {
       this.rgbVel.add(this.rgbAcc);
@@ -122,7 +122,7 @@ seek(target) {
 arrive(target) {
     let desired = p5.Vector.sub(target, this.rgb); // A vector pointing from the location to the target
     let d = desired.mag();
-    // Scale with arbitrary damping within 100 pixels
+    // Scale with arbitrary damping within 10 pixels
     if (d < 10) {
       var m = map(d, 0, 100, 0, this.maxspeed);
       desired.setMag(m);

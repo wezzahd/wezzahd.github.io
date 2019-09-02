@@ -16,7 +16,7 @@ var instruction_toggle = false;
 var gohome = false;
 var reset = false;
 var counter = 0;
-var countermax = 1000;
+var countermax = 200;
 var lerper = 0;
 var inner;
 var reset = false;
@@ -131,7 +131,7 @@ if( updateDetectRunning == false){
 
  if (main_animation == true && counter == (countermax -1)) {
    updateDetections();
-   mousetimer = false;
+   //mousetimer = false;
 }
 
 if (main_animation == true && counter == (countermax - 20)) {
@@ -155,6 +155,7 @@ if( updateDetectRunning == true){
 }
 
 //console.log('camerashutter ' +init);
+console.log("counter " +counter)
 
 
 }

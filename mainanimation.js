@@ -34,9 +34,9 @@ function noiseDraw() {
     lerper = constrain((lerper + 0.01),0,1);
   }
 
-  // if (counter == countermax) {
-  //   counter = 0;
-  // }
+  if (counter == countermax) {
+    counter = 0;
+  }
 
 if (reset == true) {
   counter = 0;
@@ -75,13 +75,13 @@ if (gohome == true){
     }
     }
 
-if (va == 0) {
+if (va == 0 && gohome == true ) {
   count += 1;
-  //console.log('count' +count);
+  console.log('count' +count);
  if (count == 4 && gohome == true){
   goHome();
  }
- if (count == 10) {  //allow time for RGB values to change
+ if (count == 10 && gohome == true) {  //allow time for RGB values to change
    count = 0;
  }
    }
