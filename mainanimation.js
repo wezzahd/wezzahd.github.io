@@ -31,7 +31,8 @@ function noiseDraw() {
 
   if (counter < countermax) {
     counter = counter + 1;
-    lerper = constrain((lerper + 0.01),0,1);
+    lerper = constrain((lerper + 0.002),0,1);
+    console.log(lerper);
   }
 
   if (counter == countermax) {
