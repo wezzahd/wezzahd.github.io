@@ -25,12 +25,12 @@ function loadingScreen() {
   pg.noFill();
   pg.stroke(255)
   pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
+  pg.rect(70,70, 30,30);
   }else{
      pg.noStroke();
   pg.fill(255)
   pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
+  pg.rect(70,70, 30,30);
   }
 
 
