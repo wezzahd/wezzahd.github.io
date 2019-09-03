@@ -47,27 +47,37 @@ function loadingScreen() {
 
 function instructions () {
 
-  for (var m = 0; m < width; m += skip) {
-        for (var n = 0; n < height; n += skip) {
+  for (var m = (width/2 - 95-skip); m < (width/2 + 95); m += skip) {
+        for (var n = (height/2 - 95-skip); n < (height/2 + 95); n += skip) {
 
 
-    pg.noFill();
+    pg.fill(255,0,0,40);
     pg.strokeWeight(.5);
-  pg.stroke(255,127);
-  pg.rectMode(CENTER);
+  pg.stroke(0);
+ pg.rectMode(CENTER);
   pg.rect(m + (skip/3) ,n, skip/3, skip);
+
+  pg.fill(0,255,0,40);
+  pg.strokeWeight(.5);
+pg.stroke(0);
+pg.rectMode(CENTER);
   pg.rect(m + (skip/3*2) ,n, skip/3, skip);
+
+  pg.fill(0,0,255,40);
+  pg.strokeWeight(.5);
+  pg.stroke(0);
+  pg.rectMode(CENTER);
   pg.rect(m + (skip/3*3) ,n, skip/3, skip);
 
 
-        }
-      }
+       }
+     }
 
 
   pg.noStroke();
   pg.fill(80,127);
   pg.rectMode(CENTER);
-  pg.rect(width/2,height/2, width, height);
+  //pg.rect(width/2,height/2, 200, 200);
 
 
 
@@ -78,13 +88,13 @@ function instructions () {
   pg.textAlign(CENTER, CENTER);
 
   if (isMobile == false) {
-    pg.textSize(24);
+    pg.textSize(14);
   } else {
-    pg.textSize(24);
+    pg.textSize(14);
   }
 
 
- pg.textFont("Oswald");
+ pg.textFont("Roboto Mono");
 
   pg.noStroke();
   pg.fill(255, 255);
@@ -113,20 +123,29 @@ function instructions () {
 
   if (isMobile == false) {
 
-     pg.textSize(70);
-     pg.text('n o i s e', width / 2, height/3);
+     pg.textSize(20);
+     pg.text('n o i s e', width / 2, height/2 - 50);
+     pg.textSize(14);
+     pg.text('Wesley Dowling', width / 2, height/2 - 20 );
 
-     pg.textSize(24);
 
-    pg.text('click button to start', width / 2, (height -20));
 
-    pg.text('mouse click to reset', width / 2, height/2);
+    pg.text('click button to start', width / 2, (height  - 20));
+
+    pg.text('mouse click to reset', width / 2, (height/2 + 70));
 
   } else {
 
-    pg.text('n o i s e', width / 2, height/6);
-    pg.text('tap button to start', width / 2, (height -20));
-       pg.text('touch to reset', width / 2, height/3+20);
+    pg.textSize(20);
+    pg.text('n o i s e', width / 2, height/2 - 50);
+    pg.textSize(14);
+    pg.text('Wesley Dowling', width / 2, height/2 - 20 );
+
+    pg.text('tap button to start', width / 2, (height  - 20));
+
+    pg.text('touch to reset', width / 2, (height/2 + 70));
+
+
 
   }
 
