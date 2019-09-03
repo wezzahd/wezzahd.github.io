@@ -47,25 +47,25 @@ function loadingScreen() {
 
 function instructions () {
 
-  for (var m = (width/2 - 95-skip); m < (width/2 + 95); m += skip) {
-        for (var n = (height/2 - 95-skip); n < (height/2 + 95); n += skip) {
+  for (var m = (width/2 - 45-skip); m < (width/2 + 45); m += skip) {
+        for (var n = (height/2 - 45-skip); n < (height/2 + 45); n += skip) {
 
 
     pg.fill(255,0,0,40);
     pg.strokeWeight(.5);
-  pg.stroke(0);
+  pg.stroke(0,80);
  pg.rectMode(CENTER);
   pg.rect(m + (skip/3) ,n, skip/3, skip);
 
   pg.fill(0,255,0,40);
   pg.strokeWeight(.5);
-pg.stroke(0);
+pg.stroke(0,80);
 pg.rectMode(CENTER);
   pg.rect(m + (skip/3*2) ,n, skip/3, skip);
 
   pg.fill(0,0,255,40);
   pg.strokeWeight(.5);
-  pg.stroke(0);
+  pg.stroke(0,80);
   pg.rectMode(CENTER);
   pg.rect(m + (skip/3*3) ,n, skip/3, skip);
 
@@ -88,9 +88,9 @@ pg.rectMode(CENTER);
   pg.textAlign(CENTER, CENTER);
 
   if (isMobile == false) {
-    pg.textSize(14);
+    pg.textSize(12);
   } else {
-    pg.textSize(14);
+    pg.textSize(12);
   }
 
 
@@ -125,25 +125,25 @@ pg.rectMode(CENTER);
 
      pg.textSize(20);
      pg.text('n o i s e', width / 2, height/2 - 50);
-     pg.textSize(14);
+     pg.textSize(12);
      pg.text('Wesley Dowling', width / 2, height/2 - 20 );
 
 
 
     pg.text('click button to start', width / 2, (height  - 20));
 
-    pg.text('mouse click to reset', width / 2, (height/2 + 70));
+    pg.text('mouse click to reset', width / 2, (height/2 + 20));
 
   } else {
 
     pg.textSize(20);
     pg.text('n o i s e', width / 2, height/2 - 50);
-    pg.textSize(14);
+    pg.textSize(12);
     pg.text('Wesley Dowling', width / 2, height/2 - 20 );
 
     pg.text('tap button to start', width / 2, (height  - 20));
 
-    pg.text('touch to reset', width / 2, (height/2 + 70));
+    pg.text('touch to reset', width / 2, (height/2 + 20));
 
 
 
