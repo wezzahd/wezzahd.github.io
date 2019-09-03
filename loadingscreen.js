@@ -138,7 +138,7 @@ pg.push();
      pg.rectMode(CORNER);
      var s = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Erat pellentesque adipiscing commodo elit at. Tristique senectus et netus et malesuada fames ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Aliquam malesuada bibendum arcu vitae elementum. Odio ut sem nulla pharetra. Lorem dolor sed viverra ipsum nunc. Amet risus nullam eget felis eget nunc lobortis. Ornare massa eget egestas purus viverra accumsan in nisl. Proin nibh nisl condimentum id. Erat nam at lectus urna. Praesent tristique magna sit amet purus. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Sed egestas egestas fringilla phasellus faucibus scelerisque. Diam vel quam elementum pulvinar. Imperdiet massa tincidunt nunc pulvinar sapien et. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Accumsan tortor posuere ac ut consequat semper. Pellentesque eu tincidunt tortor aliquam nulla facilisi.'
 
-     pg.text(s, 60, 130, width- 70, height - 130);
+     pg.text(s, 60, 140, width- 70, height - 130);
 
      pg.textSize(12);
      pg.textAlign(LEFT, LEFT);
