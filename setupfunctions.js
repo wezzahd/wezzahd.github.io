@@ -79,9 +79,9 @@ function imageaspectratiomain(mainanimation) {
 
   //  console.log(aspectRatiow, aspectRatioh)
 
-  mainanimation.push();
+    mainanimation.push();
 
-mainanimation.translate(width,0);
+    mainanimation.translate(width,0);
    mainanimation.scale(-1, 1);
 
 
