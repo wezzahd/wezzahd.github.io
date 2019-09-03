@@ -47,36 +47,10 @@ function loadingScreen() {
 
 function instructions () {
 
-  for (var m = (width/2 - 45-skip); m < (width/2 + 45); m += skip) {
-        for (var n = (height/2 - 45-skip); n < (height/2 + 45); n += skip) {
 
-
-    pg.fill(255,0,0,40);
-    pg.strokeWeight(.5);
-  pg.stroke(0,80);
- pg.rectMode(CENTER);
-  pg.rect(m + (skip/3) ,n, skip/3, skip);
-
-  pg.fill(0,255,0,40);
-  pg.strokeWeight(.5);
-pg.stroke(0,80);
-pg.rectMode(CENTER);
-  pg.rect(m + (skip/3*2) ,n, skip/3, skip);
-
-  pg.fill(0,0,255,40);
-  pg.strokeWeight(.5);
-  pg.stroke(0,80);
-  pg.rectMode(CENTER);
-  pg.rect(m + (skip/3*3) ,n, skip/3, skip);
-
-
-       }
-     }
-
-
-  pg.noStroke();
-  pg.fill(80,127);
-  pg.rectMode(CENTER);
+  // pg.noStroke();
+  // pg.fill(80,127);
+  // pg.rectMode(CENTER);
   //pg.rect(width/2,height/2, 200, 200);
 
 
@@ -88,7 +62,7 @@ pg.rectMode(CENTER);
   pg.textAlign(CENTER, CENTER);
 
   if (isMobile == false) {
-    pg.textSize(12);
+    pg.textSize(14);
   } else {
     pg.textSize(12);
   }
@@ -123,9 +97,41 @@ pg.rectMode(CENTER);
 
   if (isMobile == false) {
 
+
+
+    for (var m = (width/2 - 95-skip); m < (width/2 + 95); m += skip) {
+          for (var n = (height/2 - 95-skip); n < (height/2 + 95); n += skip) {
+
+
+      pg.fill(255,0,0,40);
+      pg.strokeWeight(.5);
+    pg.stroke(0,80);
+    pg.rectMode(CENTER);
+    pg.rect(m + (skip/3) ,n, skip/3, skip);
+
+    pg.fill(0,255,0,40);
+    pg.strokeWeight(.5);
+    pg.stroke(0,80);
+    pg.rectMode(CENTER);
+    pg.rect(m + (skip/3*2) ,n, skip/3, skip);
+
+    pg.fill(0,0,255,40);
+    pg.strokeWeight(.5);
+    pg.stroke(0,80);
+    pg.rectMode(CENTER);
+    pg.rect(m + (skip/3*3) ,n, skip/3, skip);
+
+
+         }
+       }
+
+       pg.noStroke();
+        pg.fill(255, 150);
+        pg.textAlign(CENTER, CENTER);
+
      pg.textSize(20);
      pg.text('n o i s e', width / 2, height/2 - 50);
-     pg.textSize(12);
+     pg.textSize(14);
      pg.text('Wesley Dowling', width / 2, height/2 - 20 );
 
 
@@ -135,6 +141,37 @@ pg.rectMode(CENTER);
     pg.text('mouse click to reset', width / 2, (height/2 + 20));
 
   } else {
+
+
+    for (var m = (width/2 - 45-skip); m < (width/2 + 45); m += skip) {
+          for (var n = (height/2 - 45-skip); n < (height/2 + 45); n += skip) {
+
+
+      pg.fill(255,0,0,40);
+      pg.strokeWeight(.5);
+    pg.stroke(0,80);
+   pg.rectMode(CENTER);
+    pg.rect(m + (skip/3) ,n, skip/3, skip);
+
+    pg.fill(0,255,0,40);
+    pg.strokeWeight(.5);
+  pg.stroke(0,80);
+  pg.rectMode(CENTER);
+    pg.rect(m + (skip/3*2) ,n, skip/3, skip);
+
+    pg.fill(0,0,255,40);
+    pg.strokeWeight(.5);
+    pg.stroke(0,80);
+    pg.rectMode(CENTER);
+    pg.rect(m + (skip/3*3) ,n, skip/3, skip);
+
+
+         }
+       }
+
+       pg.noStroke();
+        pg.fill(255, 150);
+        pg.textAlign(CENTER, CENTER);
 
     pg.textSize(20);
     pg.text('n o i s e', width / 2, height/2 - 50);
