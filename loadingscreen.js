@@ -138,7 +138,7 @@ function instructions () {
 
     pg.text('click button to start', width / 2, (height  - 20));
 
-    pg.text('mouse click to reset', width / 2, (height/2 + 20));
+    pg.text('mouse click to reset', width / 2, (height/2 + 35));
 
   } else {
 
