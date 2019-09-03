@@ -25,12 +25,21 @@ function loadingScreen() {
   pg.noFill();
   pg.stroke(255)
   pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
+    if (isMobile == false){
+      pg.rect(40,40, 30,30);
+      }else{
+        pg.rect(40,60, 30,30);
+}
+
   }else{
      pg.noStroke();
   pg.fill(255)
   pg.rectMode(CENTER);
-  pg.rect(40,40, 30,30);
+  if (isMobile == false){
+    pg.rect(40,40, 30,30);
+    }else{
+    pg.rect(40,60, 30,30);
+    }
   }
 
 
