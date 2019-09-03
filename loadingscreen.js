@@ -141,7 +141,7 @@ function instructions () {
      pg.textSize(20);
      pg.text('n o i s e', width / 2, height/2 - 50);
      pg.textSize(14);
-     pg.text('Wesley Dowling', width / 2, height/2 - 20 );
+     pg.text('wesley dowling', width / 2, height/2 - 20 );
 
 
 
@@ -185,7 +185,7 @@ function instructions () {
     pg.textSize(20);
     pg.text('n o i s e', width / 2, height/2 - 50);
     pg.textSize(12);
-    pg.text('Wesley Dowling', width / 2, height/2 - 20 );
+    pg.text('wesley dowling', width / 2, height/2 - 20 );
 
     pg.text('tap button to start', width / 2, (height  - 20));
 

@@ -132,6 +132,7 @@ if( updateDetectRunning == false){
   image(pixel,width/2,height/2,skip,skip);
   pop();
   textAlign(CENTER,CENTER);
+  textFont("Roboto Mono");
   text("loading",width/2,height/2+ 30);
   updateDetections();
   }
