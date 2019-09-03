@@ -25,20 +25,20 @@ function loadingScreen() {
   pg.noFill();
   pg.stroke(255)
   pg.rectMode(CENTER);
-    if (isMobile == false){
-      pg.rect(40,40, 30,30);
+    if (isMobile == true && width < heigh){
+      pg.rect(40,60, 30,30);
       }else{
-        pg.rect(60,60, 30,30);
+        pg.rect(40,40, 30,30);
 }
 
   }else{
      pg.noStroke();
   pg.fill(255)
   pg.rectMode(CENTER);
-  if (isMobile == false){
-    pg.rect(40,40, 30,30);
+  if (isMobile == true && width < height){
+    pg.rect(40,60, 30,30);
     }else{
-    pg.rect(60,60, 30,30);
+    pg.rect(40,40, 30,30);
     }
   }
 
@@ -93,7 +93,7 @@ function instructions () {
   }
 
   if (isAndroid == true && height < width) {
-    pg.text('click here for fullscreen', width / 2, (60));
+    pg.text('click here for fullscreen', width / 2, (40));
   }
 
 
