@@ -31,9 +31,12 @@ function noiseDraw() {
 
   if (counter < countermax) {
     counter = counter + 1;
-    lerper = constrain((lerper + 0.002),0,1);
-    //console.log('lerper ' +lerper);
+      if (gohome == false){
+        lerper = constrain((lerper + 0.002),0,1);
+        }else{
+          lerper = constrain((lerper - 0.002),0,1);
   }
+}
 
   if (counter == countermax) {
     counter = 0;
@@ -41,11 +44,12 @@ function noiseDraw() {
 
 if (reset == true) {
   counter = 0;
-  lerper = 0;
+  //lerper = 0;
   reset = false;
 }
 
-
+//console.log('counter ' + counter);
+//console.log('lerper ' + lerper);
 
 
 

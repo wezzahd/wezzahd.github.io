@@ -79,15 +79,17 @@ class Particle {
       this.setHue(force * hueMultiplier);
 
       if (counter < countermax && gohome == false) {
-        this.lerper = 0;
+        //this.lerper = 0;
         this.sizerr = lerp(1.0,this.sizerr,lerper);
         this.alpha = lerp(255,this.alpha,lerper);
         }
 
       if (gohome == true) {
-        this.lerper = 0;
-        this.sizerr = lerp(this.sizerr,1.0,lerper);
-        this.alpha = lerp(this.alpha,255,lerper);
+        //this.lerper = 0;
+        this.sizerr = lerp(1.0,this.sizerr,lerper);
+        this.alpha = lerp(255,this.alpha,lerper);
+        //this.sizerr = lerp(this.sizerr,1.0,lerper);
+        //this.alpha = lerp(this.alpha,255,lerper);
         }
 
     }
