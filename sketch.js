@@ -238,7 +238,7 @@ function mousePressed() {
   }
 
   if (instruction_toggle == true && isMobile == true && mouseY > height/6 + 10  && mouseY < height/6 + 30) {
-    window.open("https://www.wesleydowling.com");
+    window.location.assign("https://www.wesleydowling.com");
   }
 
 
