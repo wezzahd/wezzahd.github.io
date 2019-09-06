@@ -95,13 +95,9 @@ function instructions () {
      pg.textSize(14);
 
      pg.rectMode(CORNER);
-     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.'
+     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.\nInstructions: mouse click to reset'
 
      pg.text(s, 70, height/4+70, width- 70, height - 140);
-
-     pg.textSize(14);
-     pg.textAlign(LEFT, LEFT);
-     pg.text('mouse click to reset', 70, (height -100));
 
 
      pg.textAlign(CENTER, CENTER);
@@ -124,13 +120,10 @@ function instructions () {
      pg.textSize(12);
 
      pg.rectMode(CORNER);
-     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.';
+     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.\nInstructions: tap to reset';
 
-     pg.text(s, 20, height/6+70, width- 20, height - 130);
+     pg.text(s, 20, height/6+60, width- 20, height - 130);
 
-     pg.textSize(12);
-     pg.textAlign(LEFT, LEFT);
-     pg.text('tap to reset', 70, (height - 100));
 
 
      pg.textAlign(CENTER, CENTER);
