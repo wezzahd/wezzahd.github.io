@@ -95,7 +95,7 @@ function instructions () {
      pg.textSize(14);
 
      pg.rectMode(CORNER);
-     var s = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Erat pellentesque adipiscing commodo elit at. Tristique senectus et netus et malesuada fames ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Aliquam malesuada bibendum arcu vitae elementum. Odio ut sem nulla pharetra. Lorem dolor sed viverra ipsum nunc. Amet risus nullam eget felis eget nunc lobortis. Ornare massa eget egestas purus viverra accumsan in nisl. Proin nibh nisl condimentum id. Erat nam at lectus urna. Praesent tristique magna sit amet purus. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Sed egestas egestas fringilla phasellus faucibus scelerisque. Diam vel quam elementum pulvinar. Imperdiet massa tincidunt nunc pulvinar sapien et. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Accumsan tortor posuere ac ut consequat semper. Pellentesque eu tincidunt tortor aliquam nulla facilisi.'
+     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.'
 
      pg.text(s, 70, 190, width- 70, height - 140);
 
@@ -107,11 +107,6 @@ function instructions () {
      pg.textAlign(CENTER, CENTER);
      pg.textSize(14);
      pg.text('click button to start', width / 2, (height  - 20));
-
-
-
-
-
 
 
 
@@ -129,7 +124,7 @@ function instructions () {
      pg.textSize(12);
 
      pg.rectMode(CORNER);
-     var s = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Erat pellentesque adipiscing commodo elit at. Tristique senectus et netus et malesuada fames ac. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Aliquam malesuada bibendum arcu vitae elementum. Odio ut sem nulla pharetra. Lorem dolor sed viverra ipsum nunc. Amet risus nullam eget felis eget nunc lobortis. Ornare massa eget egestas purus viverra accumsan in nisl. Proin nibh nisl condimentum id. Erat nam at lectus urna. Praesent tristique magna sit amet purus. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Sed egestas egestas fringilla phasellus faucibus scelerisque. Diam vel quam elementum pulvinar. Imperdiet massa tincidunt nunc pulvinar sapien et. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Accumsan tortor posuere ac ut consequat semper. Pellentesque eu tincidunt tortor aliquam nulla facilisi.'
+     var s = 'Noise is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.';
 
      pg.text(s, 20, 140, width- 20, height - 130);
 
@@ -141,50 +136,6 @@ function instructions () {
      pg.textAlign(CENTER, CENTER);
      pg.textSize(12);
      pg.text('click button to start', width / 2, (height  - 20));
-
-
-
-
-  //
-  //   for (var m = (width/2 - 45-skip); m < (width/2 + 45); m += skip) {
-  //         for (var n = (height/2 - 45-skip); n < (height/2 + 45); n += skip) {
-  //
-  //
-  //     pg.fill(255,0,0,40);
-  //     pg.strokeWeight(.5);
-  //   pg.stroke(0,80);
-  //  pg.rectMode(CENTER);
-  //   pg.rect(m + (skip/3) ,n, skip/3, skip);
-  //
-  //   pg.fill(0,255,0,40);
-  //   pg.strokeWeight(.5);
-  // pg.stroke(0,80);
-  // pg.rectMode(CENTER);
-  //   pg.rect(m + (skip/3*2) ,n, skip/3, skip);
-  //
-  //   pg.fill(0,0,255,40);
-  //   pg.strokeWeight(.5);
-  //   pg.stroke(0,80);
-  //   pg.rectMode(CENTER);
-  //   pg.rect(m + (skip/3*3) ,n, skip/3, skip);
-  //
-  //
-  //        }
-  //      }
-  //
-  //      pg.noStroke();
-  //       pg.fill(255, 150);
-  //       pg.textAlign(CENTER, CENTER);
-  //
-  //   pg.textSize(20);
-  //   pg.text('n o i s e', width / 2, height/2 - 50);
-  //   pg.textSize(12);
-  //   pg.text('wesley dowling', width / 2, height/2 - 20 );
-  //
-  //   pg.text('tap button to start', width / 2, (height  - 20));
-  //
-  //   pg.text('touch to reset', width / 2, (height/2 + 20));
-
 
 
   }
