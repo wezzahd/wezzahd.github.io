@@ -234,7 +234,7 @@ function mousePressed() {
   }
 
 
-  if (mouseX > ((width -50) - 25) && mouseX < ((width-50) + 25) && mouseY > (50 - 25) && mouseY < (50 + 25)) {
+  if (mouseX > (width-90) && mouseX < (width) && mouseY > 0 && mouseY < 90) {
     instruction_toggle = !instruction_toggle;
   }
 
