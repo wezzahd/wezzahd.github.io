@@ -90,8 +90,15 @@ function instructions () {
      pg.textSize(24);
      pg.text('Noise, 2019', 70, height/4 );
      pg.textSize(24);
-     pg.text('Wesley Dowling', 70, height/4 + 30);
 
+     if (isMobile == false && mouseY > height/4 + 20  && mouseY < height/4 + 40  && mouseX < 300 ) {
+       pg.fill(0,0,205);
+     }else{
+       pg.fill(100,149,237);
+     }
+
+     pg.text('Wesley Dowling', 70, height/4 + 30);
+     pg.fill(0);
      pg.textSize(14);
 
      pg.rectMode(CORNER);
@@ -114,8 +121,19 @@ function instructions () {
       pg.fill(0);
      pg.textSize(18);
      pg.text('Noise, 2019', 20, height/6);
-     pg.textSize(18);
-     pg.text('Wesley Dowling', 20, height/6 + 20);
+
+
+     if (isMobile == true && mouseY > height/6 + 10  && mouseY < height/6 + 30 &&  mouseX < 300) {
+pg.textSize(18);
+       pg.fill(0,0,205);
+        pg.text('Wesley Dowling', 20, height/6 + 20);
+     }else{
+       pg.textSize(18);
+       pg.fill(100,149,237);
+        pg.text('Wesley Dowling', 20, height/6 + 20);
+     }
+
+
 
      pg.textSize(12);
 
