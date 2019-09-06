@@ -233,6 +233,14 @@ function mousePressed() {
 
   }
 
+  if (instruction_toggle == true && isMobile == false && mouseY > height/4 + 20  && mouseY < height/4 + 40) {
+    window.open("https://www.wesleydowling.com", _self);
+  }
+
+  if (instruction_toggle == true && isMobile == true && mouseY > height/6 + 10  && mouseY < height/6 + 30) {
+    window.open("https://www.wesleydowling.com", _self);
+  }
+
 
   if (mouseX > (width-90) && mouseX < (width) && mouseY > 0 && mouseY < 90) {
     instruction_toggle = !instruction_toggle;

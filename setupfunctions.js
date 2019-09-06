@@ -82,7 +82,7 @@ function imageaspectratiomain(mainanimation) {
     mainanimation.push();
 
     mainanimation.translate(width,0);
-   mainanimation.scale(-1, 1);
+    mainanimation.scale(-1, 1);
 
 
 
