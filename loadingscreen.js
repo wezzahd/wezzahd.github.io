@@ -130,12 +130,12 @@ function instructions () {
 
      pg.textSize(12);
      pg.textAlign(LEFT, LEFT);
-     pg.text('mouse click to reset', 70, (height - 100));
+     pg.text('tap to reset', 70, (height - 100));
 
 
      pg.textAlign(CENTER, CENTER);
      pg.textSize(12);
-     pg.text('click button to start', width / 2, (height  - 20));
+     pg.text('tap button to start', width / 2, (height  - 20));
 
 
   }
