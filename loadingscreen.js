@@ -134,7 +134,7 @@ pg.textSize(18);
      }
 
 
-
+pg.fill(0);
      pg.textSize(12);
 
      pg.rectMode(CORNER);
