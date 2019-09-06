@@ -135,9 +135,9 @@ function instructions () {
 
       pg.fill(0);
      pg.textSize(18);
-     pg.text('Noise, 2019', 60, 90);
+     pg.text('Noise, 2019', 20, 90);
      pg.textSize(18);
-     pg.text('Wesley Dowling', 60, 110);
+     pg.text('Wesley Dowling', 20, 110);
 
      pg.textSize(12);
 
