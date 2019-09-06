@@ -178,7 +178,7 @@ function windowResized() {
   if (main_animation == true) {
     inner = iosInnerHeight();
     resizeCanvas(windowWidth, inner);
-    capturecam();
+    //capturecam();
     centerCanvas();
     noiseSetup();
     setTimeout(getColour, 1000);
@@ -186,7 +186,7 @@ function windowResized() {
     pg.clear();
     inner = iosInnerHeight();
     resizeCanvas(windowWidth, inner);
-    capturecam();
+    //capturecam();
     centerCanvas();
     pg = createGraphics(width, height);
     loadingScreen();
