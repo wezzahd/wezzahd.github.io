@@ -22,31 +22,18 @@ function loadingScreen() {
 
 
   if (instruction_toggle == false) {
-
- if (isMobile == true && width < height){
-   pg.image(info, width-40, 60, 30, 30);
-      }else{
-        pg.image(info, width-40, 40, 30, 30);
+    if (isMobile == true && width < height){
+      pg.image(info, width-40, 50, 30, 30);
+        }else{
+      pg.image(info, width-40, 30, 30, 30);
 }
   }
-
-  // else{
-  // if (isMobile == true && width < height){
-  //   pg.image(close, width-40, 60, 30, 30);
-  //   }else{
-  //     pg.image(close, width-40, 40, 30, 30);
-  //   }
-  // }
-
-
 
   if (instruction_toggle == true) {
   instructions();
   }
 
   image(pg, 0, 0);
-
-
 }
 
 
@@ -62,9 +49,9 @@ function instructions () {
   if (instruction_toggle == true) {
 
  if (isMobile == true && width < height){
-   pg.image(close, width-40, 60, 30, 30);
+   pg.image(close, width-40, 50, 30, 30);
       }else{
-        pg.image(close, width-40, 40, 30, 30);
+        pg.image(close, width-40, 30, 30, 30);
 }
   }
 
