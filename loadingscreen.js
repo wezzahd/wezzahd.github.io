@@ -102,7 +102,7 @@ function instructions () {
      pg.textSize(14);
 
      pg.rectMode(CORNER);
-     var s = 'Code is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which is then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.\nInstructions: mouse click to reset'
+     var s = 'Code is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour. Face detection algorithms capture the viewers image as an RGB subpixel array. The image is then sampled to initialize and produce an ever-changing generative colour field. The work occupies a liminal queer space that oscillates between states of photographic representation and abstraction.The shifting composition is an outcome of research into how queering can be used to identify and subvert normative ideological assumptions in computational image making. Queering is used as a mode of resistance to scrutiny and surveillance by distorting the camera’s visual taxonomies through which people are recognized and regulated. The work undermines visual recognition to find a more open and variable mode of rendering that disrupts societal norms and essentialized notions of identity.\nInstructions: mouse click to reset'
 
      pg.text(s, 70, height/4+70, width- 70, height - 140);
 
@@ -135,10 +135,10 @@ pg.textSize(18);
 
 
 pg.fill(0);
-     pg.textSize(12);
+     pg.textSize(10);
 
      pg.rectMode(CORNER);
-     var s = 'Code is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour.  Machine learning algorithms capture the viewers image as an RGB subpixel array which is then sampled to initialize and produce an ever-changing generative colour field.  The work oscillates and occupies a liminal queer space between states of photographic representation and abstraction.  The shifting composition is an outcome of research into the intersections between queerness and Queer Theory, and the new paradigms of computational photography and post-representation.\nInstructions: tap to reset';
+     var s = 'Code is an online generative work by Wesley Dowling that fragments and transforms photographs into flowing colour. Face detection algorithms capture the viewers image as an RGB subpixel array. The image is then sampled to initialize and produce an ever-changing generative colour field. The work occupies a liminal queer space that oscillates between states of photographic representation and abstraction.  The shifting composition is an outcome of research into how queering can be used to identify and subvert normative ideological assumptions in computational image making. Queering is used as a mode of resistance to scrutiny and surveillance by distorting the camera’s visual taxonomies through which people are recognized and regulated. The work undermines visual recognition to find a more open and variable mode of rendering that disrupts societal norms and essentialized notions of identity.\nInstructions: tap to reset';
 
      pg.text(s, 20, height/6+50, width- 20, height - 130);
 
