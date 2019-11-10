@@ -16,7 +16,7 @@ var instruction_toggle = false;
 var gohome = false;
 var reset = false;
 var counter = 0;
-var countermax = 1000; //update
+var countermax = 500; //update
 var lerper = 0;
 var inner;
 var reset = false;
@@ -66,11 +66,11 @@ var count = 0;
 
 var pixel, info, close;
 
-document.addEventListener('touchmove', function(event) {
-  if (event.scale !== 1) {
-    event.preventDefault();
-  }
-}, false);
+var text_dict;
+let inst_button;
+let fullscr;
+let inst_text;
+
 
 
 function preload() {
@@ -206,14 +206,70 @@ function windowResized() {
  }
 }
 
-function touchMoved(event) {
-  return false;
+function windowResized() {
+
+  if (isMobile == true) {
+
+  if (main_animation == true) {
+    inner = iosInnerHeight();
+    resizeCanvas(windowWidth, inner);
+    //capturecam();
+    centerCanvas();
+    noiseSetup();
+    setTimeout(getColour, 1000);
+  } else {
+    pg.clear();
+    inner = iosInnerHeight();
+    resizeCanvas(windowWidth, inner);
+    //capturecam();
+    centerCanvas();
+    pg = createGraphics(width, height);
+    loadingScreen();
+      text_dict.size(width- 20, height/2);
+    inst_button.style('top', (height-70)+'px');
+
+  }
+}else{
+  //if (isMobile ==false &&
+    if (main_animation == true) {
+    resizeCanvas(windowWidth, windowHeight);
+    noiseSetup();
+    setTimeout(getColour, 1000);
+    } else {
+    pg.clear();
+    resizeCanvas(windowWidth, windowHeight);
+    pg = createGraphics(width, height);
+    loadingScreen();
+    text_dict.size(width- 20, height - (height/4));
+  inst_button.style('top', (height-70)+'px');
 }
+ }
+}
+//
+// function touchMoved(event) {
+//   return false;
+// }
+
+function remove_elements(){
+  text_dict.remove();
+  link.remove();
+  inst_button.remove();
+  fullscr.remove();
+//  inst_text.remove();
+}
+
+
+
 
 function mousePressed() {
 
 
-   if (mouseIsPressed == true && mouseX > (buttonx - 35) && mouseX < (buttonx + 35) && mouseY > (buttony - 35) && mouseY < (buttony + 35) && main_animation ==  false) {
+   if  (mouseX > (buttonx - 35) && mouseX < (buttonx + 35) && mouseY > (buttony - 35) && mouseY < (buttony + 35) && main_animation ==  false) {
+
+     if (instruction_toggle == true){
+       remove_elements();
+     }
+
     noiseSetup();
      main_animation = true;
   }
@@ -224,6 +280,7 @@ function mousePressed() {
     //Remove vert scroll bar in fullScreen
      document.body.scrollTop = 0; // <-- pull the page back up to the top
     document.body.style.overflow = 'hidden';
+
   }
 
 
@@ -233,17 +290,15 @@ function mousePressed() {
 
   }
 
-  if (instruction_toggle == true && isMobile == false && mouseY > height/4 + 20  && mouseY < height/4 + 40) {
-    window.open("https://www.wesleydowling.com");
-  }
-
-  if (instruction_toggle == true && isMobile == true && mouseY > height/6 + 10  && mouseY < height/6 + 30) {
-    window.location.assign("https://www.wesleydowling.com");
-  }
 
 
-  if (mouseX > (width-90) && mouseX < (width) && mouseY > 0 && mouseY < 90) {
+  if (mouseX > (width-90) && mouseX < (width) && mouseY > 0 && mouseY < 90 && main_animation ==  false) {
     instruction_toggle = !instruction_toggle;
+    if (instruction_toggle == true){
+      instructions();
+    }else{
+      remove_elements();
+    }
   }
 
   if (mouseX < width && mouseX > 0 && main_animation == true) {
@@ -253,6 +308,7 @@ function mousePressed() {
     }
   }
 }
+
 
 function keyPressed() {
 
