@@ -227,6 +227,7 @@ function windowResized() {
     loadingScreen();
       text_dict.size(width- 20, height/2);
     inst_button.style('top', (height-70)+'px');
+    link.position(20, height/5-20);
 
   }
 }else{

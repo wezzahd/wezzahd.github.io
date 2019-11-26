@@ -86,7 +86,10 @@ fullscr.style('position','absolute');
     inst_button.class("didacticcenter");
     inst_button.style('position','absolute');
     inst_button.style('top', (height-70)+'px');
-    link.position(20, 60);
+
+
+    link.position(20, height/5-20);
+
 
     }else{
 
