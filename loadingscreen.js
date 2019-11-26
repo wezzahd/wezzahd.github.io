@@ -110,17 +110,13 @@ fullscr.style('position','absolute');
   }else{
     text_dict.position(20, height/5);
     text_dict.size(width-20, height/2);
+    var $scrollableElement = document.querySelector('.didactic');
+    scrollLock.disablePageScroll($scrollableElement);
   }
 
     textResize();
 
 
-
-
-
-
-  var $scrollableElement = document.querySelector('.didactic');
-  scrollLock.disablePageScroll($scrollableElement);
 
 
 
