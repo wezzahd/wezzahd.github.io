@@ -17,6 +17,11 @@ canvas {
   display: block;
 }
 
+video {
+width: 0;
+height:	0;
+}	
+
 .didactic {
 	font-family: monospace;
 	color: #000000;
