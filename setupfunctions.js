@@ -19,7 +19,7 @@ function capturecam() {
   capture = createCapture(VIDEO, ready);
   capture.elt.setAttribute('playsinline', '');
   //capture.size(width, height);
-  capture.hide();
+  //capture.hide();
 }
 
 function imageaspectratio(pg) {
